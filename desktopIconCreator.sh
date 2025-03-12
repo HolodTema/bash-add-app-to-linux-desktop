@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]; then
+	echo "This script must be run with sudo."
+	exit 1
+fi 
+
 echo "Enter app name:"
 read APP_NAME
 echo "Enter app description:"
